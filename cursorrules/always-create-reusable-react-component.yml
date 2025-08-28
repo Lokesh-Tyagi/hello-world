@@ -1,0 +1,7 @@
+version: 1
+rules:
+  - id: "always-create-reusable-react component"
+    alwaysApply: true
+    type: reminder
+    language: typescript
+    description: Always create reusable react component for better control

@@ -1,0 +1,330 @@
+@import '../../../public/style/variable.scss';
+.journals {
+  padding: 50px 0;
+  background-color: $background-primary-color;
+  font-family: $font-family-primary;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__header {
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: $font-weight-semi-bold;
+    color: $primary-color;
+    margin: 0 0 12px 0;
+    line-height: 1;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    color: $secondary-color;
+    margin: 0;
+    font-weight: $font-weight-regular;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 60px;
+    align-items: start;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  // Featured Article Styles
+  &__featured {
+    &-card {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    &-image {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    &-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+      );
+      padding: 40px;
+      color: white;
+    }
+
+    &-title {
+      font-size:48px;
+      color: $background-primary-color;
+      font-weight: $font-weight-semi-bold;
+      margin: 0 0 16px 0;
+      line-height: 1.2;
+    }
+
+    &-link {
+      color:$background-primary-color;
+      text-decoration: underline;
+      font-weight: $font-weight-medium;
+      font-size:16px;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  // Article List Styles
+  &__articles {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__article {
+    &-card {
+      display: flex;
+      gap: 20px;
+      height: 150px;
+      // padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: white;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    &-image {
+      flex-shrink: 0;
+      width: 150px;
+      height: 100%;
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+      overflow: hidden;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-content {
+      flex: 1;
+      padding: 20px 0px 20px 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100px;
+    }
+
+    &-title {
+      font-size: 18px;
+      font-weight: $font-weight-semi-bold;
+      color: $primary-color;
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+    }
+
+    &-description {
+      font-size: 14px;
+      color: $tertiary-color;
+      font-weight: $font-weight-regular;
+      margin: 0 0 12px 0;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &-link {
+      color: $primary-color;
+      text-decoration: underline;
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+      align-self: flex-start;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__article-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  &__article-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+    color: #6b7280;
+    font-size: 0.875rem;
+    text-align: center;
+    border-radius: 12px;
+    
+    span {
+      padding: 0 16px;
+      line-height: 1.4;
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 1024px) {
+    &__content {
+      gap: 40px;
+    }
+
+    &__featured {
+      &-title {
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    // padding: 60px 0;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    &__featured {
+      &-image {
+        height: 400px;
+      }
+
+      &-overlay {
+        padding: 30px 20px;
+      }
+
+      &-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__article {
+      &-card {
+        gap: 16px;
+        height: 120px;
+        // padding: 16px;
+      }
+
+      &-image {
+        width: 100;
+        height: 100%;
+        border-radius: 8px 0px 0px 8px;
+      
+      }
+
+      &-content {
+        padding: 0;
+        min-height: auto;
+        padding: 10px;
+        // padding: 0px 10px 10px 10px;
+      }
+
+      &-title {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__container {
+      padding: 0 16px;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+    }
+
+    &__featured {
+      &-image {
+        height: 300px;
+      }
+
+      &-overlay {
+        padding: 20px 16px;
+      }
+
+      &-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    &__article {
+      &-card {
+        flex-direction: column;
+        gap: 12px;
+        height: auto;
+        // padding: 16px;
+      }
+
+      &-image {
+        width: 100%;
+        height: 120px;
+        border-radius: 8px 8px 0px 0px;
+      }
+
+      &-content {
+        padding: 0px 10px 10px 10px;
+        min-height: auto;
+      }
+
+      &-title {
+        font-size: 1.125rem;
+      }
+
+      &-description {
+        font-size: 0.875rem;
+      }
+    }
+  }
+} 

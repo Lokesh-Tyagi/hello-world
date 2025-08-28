@@ -1,0 +1,482 @@
+@import '../../../public/style/variable.scss';
+.footer {
+  background-color: $primary-color;
+  color: $background-primary-color;
+  font-family: $font-family-primary;
+  padding: 60px 0 20px 0;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    margin-bottom: 40px;
+  }
+
+  &__brand-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__logo {
+    margin: 0;
+
+    .footer-logo-image {
+      height: 20px  ;
+      width: 165px;
+      object-fit: contain;
+      // filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-size: 0.875rem;
+    .footer__contact-text {
+      font-size: 14px;
+      font-weight: $font-weight-regular;
+      color: $background-primary-color;
+    }
+  }
+
+  &__contact-icon {
+    width: 16px;
+    height: 16px;
+    color: #ffffff;
+    flex-shrink: 0;
+  }
+
+  &__social {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__social-icon {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__shop-business-mobile {
+    display: none; // Hidden by default on desktop
+    text-align: center;
+    margin-top: 20px;
+    padding: 16px 0;
+
+    h3 {
+      color: #ffffff;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0 0 8px 0;
+    }
+
+    p {
+      color: #9ca3af;
+      font-size: 0.875rem;
+      margin: 0;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+  }
+
+  &__navigation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  &__nav-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__nav-title {
+    font-size: 12px;
+    font-weight: $font-weight-semi-bold;
+    color: $background-primary-color;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block; // Ensure titles are visible by default
+
+    &--mobile {
+      display: none; // Hide mobile version by default
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      text-transform: inherit;
+      letter-spacing: inherit;
+      transition: color 0.2s ease;
+      width: 100%;
+      text-align: left;
+
+      &:hover {
+        color: #9ca3af;
+      }
+
+      @media (max-width: 768px) {
+        display: flex; // Show mobile version on small screens
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: none; // Hide desktop version on mobile
+
+      &--mobile {
+        display: flex; // Show mobile version on mobile
+      }
+    }
+  }
+
+  &__nav-arrow {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+    flex-shrink: 0;
+
+    &--open {
+      transform: rotate(180deg);
+    }
+
+    @media (min-width: 769px) {
+      display: none;
+    }
+  }
+
+  &__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &--open {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+
+      &--open {
+        display: flex;
+      }
+    }
+  }
+
+  &__nav-list li a {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+
+  &__centered-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    margin-bottom: 40px;
+    padding: 40px 0;
+    border-top: 1px solid #374151;
+    border-bottom: 1px solid #374151;
+  }
+
+  &__centered-logo {
+    .footer-centered-logo-image {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__centered-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  &__centered-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-size: 0.875rem;
+    justify-content: center;
+  }
+
+  &__centered-contact-icon {
+    width: 16px;
+    height: 16px;
+    color: #ffffff;
+    flex-shrink: 0;
+  }
+
+  &__centered-social {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  &__centered-social-icon {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__bottom {
+    margin-top: 40px;
+  }
+
+  &__divider {
+    height: 1px;
+    background-color: #374151;
+    margin-bottom: 20px;
+  }
+
+  &__copyright {
+    color: $copyright-text-color;
+    font-size: 12px;
+    font-weight: $font-weight-regular;
+    line-height: 1.4;
+    padding: 0 10px;
+    display: flex;
+  
+    gap: 30px;
+    text-align: left;
+  }
+}
+
+// Tablet Responsive (768px - 1024px)
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .footer {
+    padding: 50px 0 20px 0 !important;
+
+    &__container {
+      padding: 0 30px !important;
+    }
+
+    &__main {
+      gap: 50px !important;
+    }
+
+    &__navigation {
+      gap: 40px !important;
+    }
+
+    &__logo {
+      .footer-logo-image {
+        height: 36px !important;
+        width: auto !important;
+      }
+    }
+
+    &__contact-item {
+      font-size: 0.95rem !important;
+    }
+
+    &__nav-title {
+      font-size: 0.95rem !important;
+    }
+
+    &__nav-list li a {
+      font-size: 0.95rem !important;
+    }
+
+    &__centered-section {
+      padding: 30px 0 !important;
+      gap: 20px !important;
+    }
+
+    &__centered-logo {
+      .footer-centered-logo-image {
+        height: 36px !important;
+      }
+    }
+
+    &__centered-contact-item {
+      font-size: 0.95rem !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 20px 0;
+
+    &__main {
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+        "navigation"
+        "brand";
+      gap: 40px;
+    }
+
+    &__brand-section {
+      grid-area: brand;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    &__logo {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__contact {
+      align-items: center;
+    }
+
+    &__social {
+      justify-content: center;
+    }
+
+    &__navigation {
+      grid-area: navigation;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    &__shop-business-mobile {
+      display: block; // Show on mobile
+    }
+
+    &__centered-section {
+      padding: 30px 0;
+      gap: 20px;
+    }
+
+    &__centered-logo {
+      .footer-centered-logo-image {
+        height: 32px;
+      }
+    }
+
+    &__copyright {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+
+      span {
+        text-align: center !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    &__container {
+      padding: 0 16px;
+    }
+
+    &__logo {
+      .footer-logo-image {
+        height: 28px;
+        width: auto;
+      }
+    }
+
+    &__navigation {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    &__nav-column {
+      gap: 12px;
+    }
+
+    &__nav-list {
+      gap: 6px;
+    }
+
+    &__contact-item {
+      font-size: 0.8rem;
+    }
+
+    &__nav-list li a {
+      font-size: 0.8rem;
+    }
+
+    &__centered-section {
+      padding: 24px 0;
+      gap: 16px;
+    }
+
+    &__centered-logo {
+      .footer-centered-logo-image {
+        height: 28px;
+      }
+    }
+
+    &__centered-contact-item {
+      font-size: 0.8rem;
+    }
+
+    &__centered-social-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+} 

@@ -1,0 +1,31 @@
+.explore-page {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.explore-container {
+  width: 10px;
+  margin: 0 auto;
+  // padding: 0 2rem;
+}
+
+// Ensure breadcrumb is visible
+.breadcrumb {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .explore-page {
+    padding: 0;
+  }
+
+  .explore-container {
+    padding: 0 1rem;
+  }
+} 

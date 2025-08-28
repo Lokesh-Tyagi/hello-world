@@ -1,0 +1,374 @@
+@import '../../../public/style/variable.scss';
+
+.top-rated-venues {
+  padding: 50px 0;
+  font-family: $font-family-primary;
+  background-color: #ffffff;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  &__title-section {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: $font-weight-semi-bold;
+    color: $primary-color;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+
+  &__subtitle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    font-weight: $font-weight-regular;
+    color: $secondary-color;
+    margin: 0;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  &__see-all {
+    color: #000;
+    text-decoration: underline;
+    font-weight: $font-weight-semi-bold;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+
+    &:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  &__card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    width: 380px;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  &__coming-soon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #ef4444;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: $font-weight-semi-bold;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+  }
+
+  &__card:hover &__image {
+    transform: scale(1.05);
+  }
+
+  &__content {
+    padding: 20px;
+  }
+
+  &__header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+
+  &__venue-name {
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+    color: #171717;
+    margin: 0;
+    line-height: 1.3;
+    flex: 1;
+  }
+
+  &__rating {
+    margin-bottom: 12px;
+    
+    .rating-display {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      
+      .rating-count {
+        color: #000;
+        font-weight: $font-weight-semi-bold;
+        font-size: 14px;
+      }
+      
+      .rating-stars {
+        color: #f7bf33;
+        font-size: 16px;
+        letter-spacing: 1px;
+      }
+      
+      .review-count {
+        color: #6b7280;
+        font-size: 13px;
+        font-weight: $font-weight-regular;
+      }
+    }
+  }
+
+  &__location {
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    color: $tertiary-color;
+    margin: 0 0 16px 0;
+    line-height: 1.4;
+  }
+
+  &__details {
+    margin-bottom: 16px;
+  }
+
+  &__detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-weight: $font-weight-regular;
+    font-size: 14px;
+    color: $tertiary-color;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    span {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__status {
+    font-weight: $font-weight-semi-bold;
+    font-size: 14px;
+    // padding: 2px 8px;
+    border-radius: 12px;
+    // text-transform: ;
+    letter-spacing: 0.5px;
+    
+    &--open {
+      color: #10b981;
+      background-color: transparent;
+    }
+    
+    &--closed {
+      color: #ef4444;
+      background-color: transparent;
+    }
+  }
+
+  &__icon {
+    font-size: 1rem !important;
+    color: #6b7280 !important;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  &__tag {
+    background: $quaternary-color;
+    color: $tertiary-color;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: $font-weight-medium;
+    white-space: nowrap;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #9ca3af;
+    }
+
+    &--active {
+      background-color: #374151;
+    }
+  }
+}
+
+// Tablet Responsive (768px - 1024px)
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .top-rated-venues {
+    padding: 50px 0 !important;
+
+    &__container {
+      padding: 0 30px !important;
+    }
+
+    &__title {
+      font-size: 2rem !important;
+    }
+
+    &__subtitle {
+      font-size: 1.1rem !important;
+    }
+
+    &__cards {
+      gap: 25px !important;
+    }
+
+    &__card {
+      width: 300px !important;
+    }
+
+    &__venue-name {
+      font-size: 1.3rem !important;
+    }
+
+    &__location {
+      font-size: 0.9rem !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .top-rated-venues {
+    padding: 50px 0;
+
+    &__header {
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    &__title {
+      font-size: 1.75rem;
+    }
+
+    &__subtitle {
+      font-size: 0.9rem;
+    }
+
+    &__cards {
+      gap: 16px;
+    }
+
+    &__card {
+      width: 260px;
+    }
+
+    &__content {
+      padding: 16px;
+    }
+
+    &__venue-name {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .top-rated-venues {
+    &__container {
+      padding: 0 16px;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+    }
+
+    &__card {
+      width: 240px;
+    }
+
+    &__content {
+      padding: 14px;
+    }
+
+    &__venue-name {
+      font-size: 1rem;
+    }
+
+    &__rating {
+      font-size: 0.8rem;
+      padding: 3px 6px;
+    }
+  }
+}

@@ -1,0 +1,571 @@
+@import '../../../public/style/variable.scss';
+
+.instagram-profile {
+  background: #ffffff;
+  border-radius: 16px;
+  // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 10px 20px!important;
+  margin: 24px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    
+    &-img {
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #f0f0f0;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: $font-weight-semi-bold;
+    color: $primary-color;
+    margin: 0;
+    // font-family: 'Brush Script MT', cursive;
+  }
+
+  &__username {
+    font-size: 14px;
+    color: #8e8e8e;
+    font-weight: 400;
+  }
+
+  &__follow-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: $quinary-color;
+    color: $primary-color;
+    font-weight: $font-weight-semi-bold;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      background: #e8e7ea;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__instagram-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  &__posts {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    overflow: visible;
+    min-height: 200px; // Add minimum height to ensure buttons are visible
+  }
+
+  &__posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    flex: 1;
+    overflow: hidden;
+    touch-action: pan-y pinch-zoom;
+    user-select: none;
+    margin: 0 auto;
+    max-width: 100%;
+
+    // Mobile carousel view - single image
+    &--mobile {
+      grid-template-columns: 1fr;
+      gap: 0;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #D7D8D8;
+    border-radius: 50%;
+    background: white;
+    background-color: white;
+    color: #262626;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover:not(:disabled) {
+      background: white;
+      border-color: #b8b9b9;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    &:disabled {
+      // opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &--prev {
+      left: -20px;
+    }
+
+    &--next {
+      right: -20px;
+    }
+  }
+
+  // Carousel indicators for mobile
+  &__indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    padding: 0 16px;
+    width: 100%;
+  }
+
+  &__indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: #D7D8D8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+
+    &:hover {
+      background-color: #b8b9b9;
+      transform: scale(1.2);
+    }
+
+    &--active {
+      background-color: #262626;
+      transform: scale(1.2);
+    }
+  }
+
+  &__post {
+    background: white;
+    border-radius: 12px;
+    // width: 350px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &__post-image {
+    position: relative;
+    height: 450px;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  &__post-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &__post:hover &__post-img {
+    transform: scale(1.05);
+  }
+
+  &__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    backdrop-filter: blur(4px);
+
+    svg {
+      width: 24px;
+      height: 24px;
+      margin-left: 2px; // Slight offset for play button
+    }
+  }
+
+  &__post-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__post-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+  &__post-description {
+    font-size: 12px;
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.3;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+  &__post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: #fafafa;
+  }
+
+  &__post-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__post-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__post-instagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__instagram-icon-small {
+    width: 30px;
+    height: 30px;
+    fill: white;
+  }
+
+  &__post-logo-img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__post-username {
+    font-size: 14px;
+    color: $background-primary-color;
+    font-weight: $font-weight-semi-bold;
+  }
+
+  &__post-time {
+    font-size: 12px;
+    color: $background-primary-color;
+    font-weight: $font-weight-regular;
+  }
+
+  // Responsive design
+  @media (max-width: 768px) {
+    padding: 16px;
+    margin: 16px 0;
+
+    &__header {
+      flex-direction: row;
+      text-align: center;
+      gap: 12px;
+    }
+
+    &__posts {
+      gap: 12px;
+      position: relative;
+      padding: 0 16px; // Reduced padding since we don't need space for nav buttons
+      min-height: 200px; // Ensure minimum height for button visibility
+      width: 100%; // Ensure full width
+      // border: 2px solid blue; // Temporary debugging border
+    }
+
+    &__posts-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      overflow: hidden;
+      touch-action: pan-y pinch-zoom;
+      width: 100%; // Ensure full width
+
+      // Mobile carousel view
+      &--mobile {
+        grid-template-columns: 1fr;
+        gap: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &__post {
+      width: 100%; // Take full width of grid cell
+      max-width: 350px; // Maintain the same max width as laptop
+      min-width: 0; // Allow shrinking if needed
+
+      // Mobile carousel view - full width
+      .instagram-profile__posts-grid--mobile & {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      
+      &:active {
+        transform: scale(0.98); // Same as laptop
+      }
+    }
+
+    &__post-image {
+      height: 450px; // Same height as laptop
+      width: 100%;
+
+      // Mobile carousel view - full width image
+      .instagram-profile__posts-grid--mobile & {
+        width: 100%;
+        height: 450px;
+      }
+    }
+
+    // Hide navigation buttons on mobile
+    &__nav-btn {
+      display: none !important;
+    }
+
+    // Style indicators for mobile
+    &__indicators {
+      margin-top: 24px;
+      gap: 10px;
+      padding: 0 16px;
+    }
+
+    &__indicator {
+      width: 8px;
+      height: 8px;
+
+      &:hover {
+        transform: scale(1.3);
+      }
+
+      &--active {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__name {
+      font-size: 16px;
+    }
+
+    &__username {
+      font-size: 13px;
+    }
+
+    &__follow-btn {
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    &__posts {
+      padding: 0px; // Further reduced padding for small screens
+      min-height: 180px; // Ensure minimum height for button visibility
+      width: 100%; // Ensure full width
+      // border: 2px solid green; // Temporary debugging border
+    }
+
+    &__posts-grid {
+      gap: 8px;
+      width: 100%; // Ensure full width
+      grid-template-columns: repeat(3, 1fr); // Keep 3 columns
+
+      // Mobile carousel view
+      &--mobile {
+        grid-template-columns: 1fr;
+        gap: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &__post {
+      width: 100%; // Take full width of grid cell
+      max-width: 350px; // Maintain the same max width as laptop
+      min-width: 0; // Allow shrinking if needed
+
+      // Mobile carousel view - full width
+      .instagram-profile__posts-grid--mobile & {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    &__post-image {
+      height: 450px; // Same height as laptop
+      width: 100%;
+
+      // Mobile carousel view - full width image
+      .instagram-profile__posts-grid--mobile & {
+        width: 100%;
+        height: 450px;
+      }
+    }
+
+    // Hide navigation buttons on mobile
+    &__nav-btn {
+      display: none !important;
+    }
+
+    // Style indicators for small mobile
+    &__indicators {
+      margin-top: 20px;
+      gap: 8px;
+      padding: 0 16px;
+    }
+
+    &__indicator {
+      width: 8px;
+      height: 8px;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &--active {
+        transform: scale(1.2);
+      }
+    }
+
+    &__header {
+      gap: 8px;
+    }
+
+    &__logo-img {
+      width: 50px !important;
+      height: 50px !important;
+    }
+  }
+
+  // Add extra small screen breakpoint for very small devices
+  @media (max-width: 360px) {
+    &__posts {
+      padding: 0 8px; // Minimal padding for very small screens
+    }
+
+    &__posts-grid {
+      gap: 6px; // Reduce gap even more for very small screens
+
+      // Mobile carousel view
+      &--mobile {
+        grid-template-columns: 1fr;
+        gap: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &__post {
+      width: 100%; // Take full width of grid cell
+      max-width: 350px; // Maintain the same max width as laptop
+      min-width: 0; // Allow shrinking if needed
+
+      // Mobile carousel view - full width
+      .instagram-profile__posts-grid--mobile & {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    &__post-image {
+      height: 450px; // Same height as laptop
+      width: 100%;
+
+      // Mobile carousel view - full width image
+      .instagram-profile__posts-grid--mobile & {
+        width: 100%;
+        height: 450px;
+      }
+    }
+
+    // Hide navigation buttons on mobile
+    &__nav-btn {
+      display: none !important;
+    }
+
+    // Style indicators for very small mobile
+    &__indicators {
+      margin-top: 16px;
+      gap: 6px;
+      padding: 0 12px;
+    }
+
+    &__indicator {
+      width: 6px;
+      height: 6px;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &--active {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

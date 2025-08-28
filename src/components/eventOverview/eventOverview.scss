@@ -1,0 +1,2872 @@
+.event-overview {
+  max-width: 100%;
+  margin: 0;
+  padding: 0 50px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  
+  // Allow sticky positioning to work properly on larger screens
+  @media (min-width: 1200px) {
+    overflow-x: visible;
+  }
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    
+    // Ensure no horizontal overflow on mobile
+    * {
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 0.75rem;
+  }
+  
+  @media (max-width: 360px) {
+    padding: 0 0.5rem;
+  }
+}
+.similar-lounges-container{
+  background-color: #fbfbfb !important;
+  padding: 20px !important;
+}
+// Ensure all child elements respect container width
+.event-overview * {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+// Global mobile overflow prevention
+@media (max-width: 768px) {
+  .event-overview,
+  .event-overview * {
+    // overflow-x: hidden !important;
+    max-width: 100vw !important;
+    box-sizing: border-box;
+  }
+  
+  // Ensure proper mobile viewport handling
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  // Fix for iOS Safari viewport issues
+  @supports (-webkit-touch-callout: none) {
+    .event-overview {
+      width: 100vw;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+  }
+  
+  // Additional global fixes
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  // Ensure all elements respect viewport constraints
+  * {
+    max-width: 100vw !important;
+    box-sizing: border-box;
+  }
+}
+
+// Header Section
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  &__left {
+    flex: 1;
+  }
+
+  &__title-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #171717;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #666;
+    flex-shrink: 0;
+  }
+
+  &__rating-stars {
+    color: #ffd700;
+    font-size: 1rem;
+  }
+
+  &__rating-score {
+    font-weight: 600;
+    color: #171717;
+  }
+
+  &__rating-count {
+    color: #666;
+    font-weight: 500;
+  }
+
+  &__address {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+
+    span {
+      flex: 1;
+    }
+  }
+
+  &__show-map {
+    color: #000 ;
+    background: none;
+    font-weight: 500;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    margin-left: 1rem;
+
+    &:hover {
+      color: #2563eb;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  &__action {
+    background: none;
+    border: 2px solid #e5e7eb;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #f3f4f6;
+      color: #374151;
+      border-color: #d1d5db;
+    }
+
+    &.liked {
+      color: #ef4444;
+      border-color: #ef4444;
+    }
+  }
+}
+
+// Main Content Layout
+.event-content {
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: 3rem;
+  align-items: start;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  // Mobile responsive fixes
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    // Ensure all child elements respect container width
+    > * {
+      max-width: 100% !important;
+      width: 100% !important;
+      overflow-x: hidden;
+    }
+  }
+}
+
+// Hero Section
+.hero-section {
+  margin-bottom: 3rem;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  // Allow sticky positioning to work properly on larger screens
+  @media (min-width: 1200px) {
+    overflow-x: visible;
+  }
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    // Ensure all child elements respect container width
+    > * {
+      max-width: 100% !important;
+      width: 100% !important;
+      overflow-x: hidden;
+    }
+  }
+}
+
+
+
+
+
+.hero-image {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  width: 100%;
+
+  &__img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    display: block;
+    max-width: 100%;
+  }
+
+  &__placeholder {
+    width: 100%;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+    color: #6b7280;
+    font-size: 1.125rem;
+    text-align: center;
+    border-radius: 15px;
+    max-width: 100%;
+
+    span {
+      padding: 0 20px;
+      line-height: 1.4;
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    pointer-events: none;
+    
+    // Hide navigation buttons on mobile
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__nav-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    pointer-events: all;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 1);
+      border-color: rgba(255, 255, 255, 1);
+      transform: scale(1.1);
+    }
+  }
+
+  &__indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+    
+    // Hide indicators on large screens (1204px and above)
+    @media (min-width: 1204px) {
+      display: none;
+    }
+    
+    // Make indicators more prominent on mobile
+    @media (max-width: 768px) {
+      bottom: 0.75rem;
+      gap: 0.4rem;
+    }
+  }
+
+  &__indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 1);
+      border-color: rgba(255, 255, 255, 1);
+    }
+  }
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    
+    &__img {
+      height: 250px;
+      max-width: 100%;
+      width: 100%;
+    }
+    
+    &__placeholder {
+      height: 250px;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
+
+// Tags
+.tags {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    max-width: 100%;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+    
+    .tag {
+      max-width: 100%;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Mobile Reservation Card - Only visible on mobile
+.mobile-reservation-card {
+  display: none;
+  margin: 2rem 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  .reservation-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    &__contact-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 0.75rem;
+      justify-content: space-between;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    .contact-btn {
+      flex: 1;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+  }
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    display: block;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 1.5rem 0;
+    
+    .reservation-card {
+      padding: 1.25rem;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+  }
+}
+
+.tag {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #e5e7eb;
+  }
+}
+
+// Navigation Tabs Wrapper
+.navigation-tabs-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    margin: 20px 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    // Ensure proper mobile scrolling
+    .navigation-tabs {
+      max-width: 100%;
+      overflow-x: auto !important;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+
+// Navigation Tabs
+.event-overview .navigation-tabs {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  max-width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  flex: 1;
+  
+  // Ensure proper scrolling on all devices
+  -webkit-overflow-scrolling: touch;
+  
+  // Custom scrollbar for webkit browsers
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+    
+    &:hover {
+      background: #a8a8a8;
+    }
+  }
+  
+  // Hide scrollbar on very small screens but keep functionality
+  @media (max-width: 480px) {
+    &::-webkit-scrollbar {
+      height: 2px;
+    }
+    
+    scrollbar-width: none;
+    
+    &:hover {
+      scrollbar-width: thin;
+    }
+  }
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    gap: 1rem;
+    max-width: 100%;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    
+    // Ensure tabs don't overflow container
+    .nav-tab {
+      flex-shrink: 0;
+      min-width: auto;
+      
+      &__text {
+        white-space: nowrap;
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  }
+}
+
+// Additional specific rule to ensure scrolling works
+.navigation-tabs {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  min-width: 100%;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+// Force scrolling to work regardless of parent overflow settings
+.event-overview .navigation-tabs,
+.navigation-tabs {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  max-width: none !important;
+  width: max-content !important;
+}
+
+// Navigation Scroll Buttons
+.nav-scroll-btn {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: #6b7280;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  z-index: 10;
+  
+  &:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    color: #374151;
+  }
+  
+  &:active {
+    background: #f3f4f6;
+    transform: scale(0.95);
+  }
+  
+  // Hide scroll buttons on very small screens
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.nav-scroll-btn--left {
+  margin-right: 8px;
+}
+
+.nav-scroll-btn--right {
+  margin-left: 8px;
+}
+
+.nav-tab {
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: max-content;
+  
+  &__text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #9ca3af;
+    padding: 0.75rem 0;
+    display: block;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+    
+    &.active {
+      color: #171717;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #E07A6F;
+        border-radius: 1px;
+      }
+    }
+  }
+  
+  &:hover .nav-tab__text {
+    color: #171717;
+  }
+}
+
+// Section Styles
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #171717;
+  margin: 2rem 0 1rem 0;
+  padding-top: 1rem;
+  scroll-margin-top: 120px; // Ensures proper scroll positioning
+}
+
+.overview-section {
+  margin-bottom: 3rem;
+}
+
+.overview-content {
+  p {
+    color: #374151;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+}
+
+// Menu Section
+.menu-section {
+  // padding-top: 30px;
+  margin-bottom: 3rem;
+}
+
+.menu-description {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+// Instagram Section
+.instagram-section {
+  margin-bottom: 3rem;
+
+  .instagram-description {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    strong {
+      font-weight: 600;
+      color: #171717;
+    }
+  }
+}
+
+// Promotions Section
+.promotions-section {
+  margin-bottom: 3rem;
+}
+
+.promotions-description {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  
+  strong {
+    font-weight: 600;
+    color: #171717;
+  }
+}
+
+// Promotion Card
+.promotion-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  &__image {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  &__content {
+    flex: 1;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #171717;
+    margin: 0 0 0.5rem 0;
+    word-wrap: break-word;
+  }
+  
+  &__details {
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0;
+    word-wrap: break-word;
+  }
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    flex-direction: row;
+    max-width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    overflow-x: hidden;
+    
+    &__image {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+    }
+    
+    &__content {
+      padding: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    &__title {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      word-wrap: break-word;
+    }
+    
+    &__details {
+      font-size: 0.9rem;
+      word-wrap: break-word;
+    }
+  }
+}
+
+
+
+.menu-cards {
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    .menu-cards-mobile {
+      max-width: 100%;
+      overflow-x: hidden;
+      
+      .menu-card {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.menu-cards-desktop {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 2rem;
+  justify-content: start;
+}
+
+.menu-cards-mobile {
+  display: none;
+}
+
+.menu-card {
+  background: #1f2937;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.2);
+  }
+  
+  &--image {
+    background: #1f2937;
+    border: 1px solid #374151;
+  }
+  
+  &__dummy-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  &__count-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 12px;
+    backdrop-filter: blur(2px);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: scale(1.02);
+    }
+  }
+
+  &__plus-icon {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-right: 0.5rem;
+  }
+
+  &__count-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  &__plus-count {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .menu-cards-desktop {
+    display: none;
+  }
+  
+  .menu-cards-mobile {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-content: center;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .menu-card {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+    
+    &__count-overlay {
+      flex-direction: row;
+      
+      .menu-card__plus-icon {
+        font-size: 1.25rem;
+        margin-right: 0.25rem;
+      }
+      
+      .menu-card__count-text {
+        font-size: 1.25rem;
+      }
+      
+      .menu-card__plus-count {
+        font-size: 2.5rem;
+      }
+    }
+  }
+  
+  .promotion-card {
+    flex-direction: row;
+    max-width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    
+    &__image {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+    }
+    
+    &__content {
+      padding: 0;
+    }
+    
+    &__title {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    &__details {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .promotion-title {
+    font-size: 1.25rem;
+  }
+  
+  .promotion-time {
+    font-size: 0.875rem;
+  }
+}
+
+.menu-section {
+  margin-bottom: 1.5rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  &__title {
+    color: #fbbf24;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  &__name {
+    color: #f9fafb;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  &__size {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    margin-right: 0.75rem;
+    white-space: nowrap;
+  }
+  
+  &__price {
+    color: #fbbf24;
+    font-weight: 600;
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .menu-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .menu-card {
+    &__content {
+      padding: 1rem;
+    }
+  }
+  
+  .menu-item {
+    flex-direction: column;
+    gap: 0.25rem;
+    
+    &__name {
+      margin-right: 0;
+      margin-bottom: 0.25rem;
+    }
+    
+    &__size {
+      margin-right: 0;
+    }
+  }
+}
+
+.read-more {
+  // color: #3b82f6;
+  background: none;
+  font-weight: 500;
+  text-decoration: underline;
+  // border: 2px solid #3b82f6;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.2s ease;
+
+  // &:hover {
+  //   color: #2563eb;
+  //   border-color: #2563eb;
+  //   background-color: rgba(59, 130, 246, 0.05);
+  // }
+}
+
+// Section Divider
+.section-divider {
+  height: 0.5px;
+  background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+  margin: 3rem 0;
+  border: none;
+}
+
+// Promotions Section
+.promotions-section {
+  margin-bottom: 3rem;
+}
+
+.promotions-intro {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.promotions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.promotion-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 400px;
+
+  &:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &__image {
+    width: 80px;
+    height: 80px;
+    background: #f3f4f6;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #171717;
+    margin: 0 0 0.5rem 0;
+  }
+
+  &__details {
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.875rem;
+  }
+}
+
+// Sidebar
+.event-sidebar {
+  position: static;
+  margin-bottom: 3rem;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    display: none;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+.reservation-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  // Mobile-specific fixes
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    &__contact-buttons {
+      gap: 0.75rem;
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    .contact-btn {
+      flex: 1;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+  }
+}
+
+.reservation-card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #171717;
+  margin: 0 0 0.5rem 0;
+}
+
+.reservation-card__price {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.reservation-card__category {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #666;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.category-icon {
+  font-size: 1rem;
+}
+
+.reservation-card__hours {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #666;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.hours-icon {
+  font-size: 1rem;
+  color: #28a745;
+}
+
+.hours-status {
+  font-weight: 600;
+  font-size: 0.8rem;
+  
+  &.open {
+    color: #28a745;
+  }
+  
+  &.closed {
+    color: #dc3545;
+  }
+}
+
+.hours-time {
+  color: #666;
+  font-size: 0.75rem;
+}
+
+ .reservation-card__actions {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   margin-bottom: 1.5rem;
+ }
+
+ .reservation-card__contact-buttons {
+   display: flex;
+   gap: 1rem;
+   justify-content: space-between;  
+ }
+
+ .contact-btn {
+   flex: 1;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.5rem;
+   padding: 0.75rem 1rem;
+   background: white;
+   border: 2px solid #e5e7eb;
+   border-radius: 50px;
+   cursor: pointer;
+   transition: all 0.2s ease;
+   font-family: inherit;
+   font-weight: 600;
+   font-size: 0.875rem;
+   color: #000;
+
+   &:hover {
+     background-color: #f9fafb;
+     border-color: #d1d5db;
+     transform: translateY(-1px);
+   }
+
+   &__icon {
+     font-size: 1rem;
+     color: #000;
+   }
+
+   &__text {
+     font-weight: 600;
+   }
+ }
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 2px solid transparent;
+
+  &--primary {
+    background: #000;
+    color: white;
+    border-color: #000;
+
+    &:hover {
+      background: #1f2937;
+      border-color: #1f2937;
+    }
+  }
+
+  &--secondary {
+    background: white;
+    color: #000;
+    border-color: #d1d5db;
+
+    &:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+    }
+  }
+}
+
+ // Owner Card
+ .owner-card {
+   background: #f6f5f8;
+   border-radius: 12px;
+    padding: 2rem;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   border: 1px solid #e5e7eb;
+   margin-top: 1.5rem;
+ }
+
+   .owner-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // margin-bottom: 0.75rem;
+  }
+
+ .owner-card__title {
+   font-size: 18px;
+   font-weight: 600;
+   color: #171717;
+   margin: 0;
+ }
+
+ .owner-card__badge {
+   background: #ef4444;
+   color: white;
+   padding: 0.25rem 0.5rem;
+   border-radius: 4px;
+   font-size: 13px;
+   font-weight: 600;
+   border-radius: 50px;
+   padding: 8px 20px;
+   line-height: 16px;
+ }
+
+ .owner-card__description {
+   color: #6b7280;
+   font-size: 0.875rem;
+   line-height: 1.5;
+   margin-bottom: 1rem;
+ }
+
+ .owner-card__claim {
+  //  color: #3b82f6;
+   background: none;
+   font-weight: 500;
+   border: none;
+   font-size: 0.875rem;
+   cursor: pointer;
+   text-decoration: underline;
+   padding: 0;
+
+  
+ }
+
+// Video Card Container
+.video-card-container {
+  width: 950px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  
+  .event-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .event-sidebar {
+    position: static;
+    margin-bottom: 3rem;
+  }
+
+  .video-card-container {
+    width: 768px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-overview {
+    padding: 0 1rem;
+    overflow-x: hidden;
+  }
+
+  .event-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  // Show mobile reservation card and hide desktop sidebar
+  .mobile-reservation-card {
+    display: block;
+  }
+  
+  .event-sidebar {
+    display: none;
+  }
+
+  .event-header {
+    flex-direction: column;
+    gap: 1rem;
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__address {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+
+      span {
+        width: 100%;
+      }
+    }
+
+    &__show-map {
+      margin-left: 0;
+      margin-top: 0.5rem;
+    }
+
+    &__actions {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .hero-image__img {
+    height: 250px;
+  }
+
+
+
+  .hero-image__nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  .tags {
+    gap: 0.5rem;
+  }
+
+  .tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .overview-content {
+    p {
+      font-size: 0.9rem;
+    }
+
+
+  }
+
+  .promotions-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .promotion-card {
+    padding: 1rem;
+    gap: 1rem;
+
+    &__image {
+      width: 80px;
+      height: 80px;
+    }
+
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__details {
+      font-size: 0.8rem;
+    }
+  }
+
+  .reservation-card {
+    padding: 1.5rem;
+
+    &__title {
+      font-size: 1.1rem;
+    }
+
+    &__price {
+      font-size: 0.9rem;
+    }
+
+    &__hours {
+      .hours-status {
+        font-size: 0.75rem;
+      }
+      
+      .hours-time {
+        font-size: 0.7rem;
+      }
+    }
+
+    &__contact-buttons {
+      gap: 0.75rem;
+    }
+
+    .contact-btn {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.8rem;
+
+      &__icon {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .owner-card {
+    padding: 1.5rem;
+
+    &__title {
+      font-size: 0.9rem;
+    }
+
+    &__description {
+      font-size: 0.8rem;
+    }
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .video-card-container {
+     width: 700px !important;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-overview {
+    padding: 0 0.5rem;
+    overflow-x: hidden;
+  }
+  
+  .mobile-reservation-card {
+    margin: 1.5rem 0;
+    
+    .reservation-card {
+      padding: 1rem;
+    }
+  }
+
+  .event-header {
+    &__title-row {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+    }
+
+    &__rating {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.6rem;
+    }
+
+    &__address {
+      font-size: 0.9rem;
+    }
+    
+    &__actions {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .hero-image__img {
+    height: 200px;
+  }
+
+  .hero-image__nav-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .tags {
+    gap: 0.4rem;
+  }
+
+  .tag {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    margin-top: 0rem !important;
+  }
+
+  .overview-content {
+    p {
+      font-size: 0.85rem;
+    }
+
+
+  }
+
+  .reservation-card {
+    padding: 1rem;
+
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__price {
+      font-size: 0.85rem;
+    }
+  }
+
+  .owner-card {
+    padding: 1rem;
+
+    &__title {
+      font-size: 0.85rem;
+    }
+
+    &__description {
+      font-size: 0.75rem;
+    }
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .video-card-container {
+    width: 370px !important;
+    margin: 0;
+    padding: 0;
+  }
+} 
+
+// Enhanced Responsive Design - Mobile First Approach
+@media (max-width: 1199px) {
+  .event-content {
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
+  }
+  
+  .hero-image__img {
+    height: 500px;
+  }
+  
+  .video-card-container {
+    width: 900px !important;
+  }
+  
+
+}
+
+// Ensure sidebar is sticky for 1200px and above
+@media (min-width: 1200px) {
+  .event-content {
+    grid-template-columns: 1fr 450px;
+    gap: 3rem;
+    overflow-x: visible; // Allow sticky positioning to work properly
+  }
+  
+  .event-sidebar {
+    position: sticky;
+    top: 4rem;
+    align-self: start;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  .event-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .event-sidebar {
+    position: static;
+    margin-bottom: 3rem;
+    order: -1; // Move sidebar to top on mobile
+  }
+
+  .video-card-container {
+    width: 100% !important;
+    max-width: 768px;
+  }
+  
+  .hero-image__img {
+    height: 450px;
+  }
+  
+  .navigation-tabs {
+    gap: 1.5rem;
+    margin: 20px 0;
+  }
+  
+  .nav-tab__text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-overview {
+    padding: 0 1rem;
+    min-height: auto;
+  }
+
+  .event-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .event-header {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-top: 0.5rem;
+
+    &__title-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+
+    &__rating {
+      font-size: 0.8rem;
+      padding: 0.5rem 0.75rem;
+      // background: #f9fafb;
+      // border-radius: 20px;
+      // border: 1px solid #e5e7eb;
+    }
+
+    &__address {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+
+      span {
+        width: 100%;
+        line-height: 1.4;
+      }
+    }
+
+    &__show-map {
+      margin-left: 0;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      padding: 0.5rem 0;
+    }
+
+    &__actions {
+      align-self: flex-end;
+      gap: 0.75rem;
+    }
+    
+    &__action {
+      width: 35px;
+      height: 35px;
+      padding: 0.4rem;
+    }
+  }
+
+  .hero-section {
+    margin-bottom: 2rem;
+  }
+
+  .hero-image {
+    margin-bottom: 0.75rem;
+    
+    &__img {
+      height: 250px;
+    }
+    
+    &__placeholder {
+      height: 250px;
+      font-size: 1rem;
+    }
+
+    &__navigation {
+      padding: 0 0.75rem;
+      display: none; // Hide navigation on mobile
+    }
+
+    &__nav-btn {
+      width: 35px;
+      height: 35px;
+      font-size: 1.2rem;
+    }
+
+    &__indicators {
+      bottom: 0.75rem;
+      gap: 0.4rem;
+    }
+
+    &__indicator {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  .tags {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+
+  .navigation-tabs-wrapper {
+    margin: 20px 0;
+  }
+  
+  .navigation-tabs {
+    gap: 1rem;
+    margin: 0 0 0.5rem 0;
+    overflow-x: auto !important;
+    padding-bottom: 0.5rem;
+    max-width: 100%;
+    scrollbar-width: none;
+    scrollbar-color: #c1c1c1 #f1f1f1;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 2px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 2px;
+      
+      &:hover {
+        background: #a8a8a8;
+      }
+    }
+  }
+
+  .nav-tab {
+    flex-shrink: 0;
+    
+    &__text {
+      font-size: 16px;
+      padding: 0.6rem 0;
+      white-space: nowrap;
+    }
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .overview-section {
+    margin-bottom: 0;
+  }
+
+  .overview-content {
+    p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  }
+
+  .menu-section {
+    padding-top: 20px;
+    margin-bottom: 2rem;
+  }
+
+  .menu-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .menu-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-content: center;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .menu-card {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+    
+    &__count-overlay {
+      .menu-card__plus-count {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  .promotions-section {
+    margin-bottom: 2rem;
+  }
+
+  .promotions-description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .promotions-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .promotion-card {
+    padding: 1rem;
+    flex-direction: row;
+    text-align: left;
+    max-width: 100%;
+    gap: 1rem;
+
+    &__image {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 0;
+    }
+
+    &__title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &__details {
+      font-size: 0.85rem;
+    }
+  }
+
+  .reservation-card {
+    padding: 1.5rem;
+
+    &__title {
+      font-size: 1.1rem;
+    }
+
+    &__price {
+      font-size: 0.9rem;
+    }
+
+    &__category {
+      font-size: 0.8rem;
+      gap: 0.75rem;
+    }
+
+    &__hours {
+      font-size: 0.8rem;
+      gap: 0.75rem;
+      
+      .hours-status {
+        font-size: 0.75rem;
+      }
+      
+      .hours-time {
+        font-size: 0.7rem;
+      }
+    }
+
+    &__contact-buttons {
+      gap: 0.75rem;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .contact-btn {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      flex: 1;
+
+      &__icon {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .owner-card {
+    padding: 1.5rem;
+
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__description {
+      font-size: 0.85rem;
+    }
+    
+    &__badge {
+      font-size: 12px;
+      padding: 6px 16px;
+    }
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .video-card-container {
+    width: 100% !important;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .section-divider {
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .event-overview {
+    padding: 0 0.75rem;
+  }
+  
+  .mobile-reservation-card {
+    margin: 1.75rem 0;
+  }
+  
+  .event-header {
+    &__title {
+      font-size: 1.4rem;
+    }
+    
+    &__rating {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.6rem;
+    }
+    
+    &__address {
+      font-size: 0.85rem;
+    }
+    
+    &__show-map {
+      font-size: 0.85rem;
+    }
+    
+    &__actions {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+  }
+  
+  .hero-image {
+    &__img {
+      height: 220px;
+    }
+    
+    &__placeholder {
+      height: 220px;
+    }
+    
+    &__nav-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 1.1rem;
+    }
+    
+    &__indicators {
+      bottom: 0.6rem;
+      gap: 0.35rem;
+    }
+    
+    &__indicator {
+      width: 9px;
+      height: 9px;
+      min-width: 22px;
+      min-height: 22px;
+      
+      &::before {
+        width: 7px;
+        height: 7px;
+      }
+      
+      &.active::before {
+        width: 9px;
+        height: 9px;
+      }
+    }
+  }
+  
+  .tags {
+    gap: 0.4rem;
+  }
+  
+  .tag {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+  }
+  
+  .navigation-tabs-wrapper {
+    margin: 15px 0;
+  }
+  
+  .navigation-tabs {
+    gap: 0.75rem;
+    margin: 0;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+  
+  .nav-tab__text {
+    font-size: 15px;
+    padding: 0.5rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+  }
+  
+  .menu-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .menu-card {
+    height: 140px;
+  }
+  
+  .promotion-card {
+    padding: 0.875rem;
+    gap: 0.75rem;
+    
+    &__image {
+      width: 70px;
+      height: 70px;
+    }
+    
+    &__title {
+      font-size: 1rem;
+    }
+    
+    &__details {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .reservation-card {
+    padding: 1.25rem;
+    
+    &__title {
+      font-size: 1rem;
+    }
+    
+    &__price {
+      font-size: 0.85rem;
+    }
+  }
+  
+  .owner-card {
+    padding: 1.25rem;
+    
+    &__title {
+      font-size: 0.95rem;
+    }
+    
+    &__description {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .btn {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-overview {
+    padding: 0 0.5rem;
+  }
+
+  .event-header {
+    &__title-row {
+      gap: 0.5rem;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+    }
+
+    &__rating {
+      font-size: 0.7rem;
+      padding: 0.35rem 0.5rem;
+    }
+
+    &__address {
+      font-size: 0.8rem;
+    }
+    
+    &__show-map {
+      font-size: 0.8rem;
+    }
+    
+    &__action {
+      width: 32px;
+      height: 32px;
+      padding: 0.35rem;
+    }
+  }
+
+  .hero-image {
+    &__img {
+      height: 200px;
+    }
+    
+    &__placeholder {
+      height: 200px;
+      font-size: 0.9rem;
+    }
+
+    &__nav-btn {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+    }
+    
+    &__indicators {
+      bottom: 0.5rem;
+      gap: 0.3rem;
+    }
+    
+    &__indicator {
+      width: 8px;
+      height: 8px;
+      min-width: 20px;
+      min-height: 20px;
+      
+      &::before {
+        width: 6px;
+        height: 6px;
+      }
+      
+      &.active::before {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+
+  .tags {
+    gap: 0.35rem;
+  }
+
+  .tag {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+    border-radius: 6px;
+  }
+
+  .navigation-tabs {
+    gap: 0.5rem;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .nav-tab__text {
+    font-size: 14px;
+    padding: 0.5rem 0;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .overview-content {
+    p {
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+  }
+  
+  .menu-section {
+    padding-top: 15px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .menu-description {
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .menu-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .menu-card {
+    height: 120px;
+    border-radius: 8px;
+    
+    &__count-overlay {
+      .menu-card__plus-count {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .promotions-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .promotions-description {
+    font-size: 0.85rem;
+  }
+
+  .promotions-grid {
+    gap: 0.75rem;
+  }
+
+  .promotion-card {
+    padding: 0.75rem;
+    
+    &__image {
+      height: 100px;
+      width: 100px;
+      margin-bottom: 0.75rem;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__details {
+      font-size: 1rem;
+    }
+  }
+
+  .reservation-card {
+    padding: 1rem;
+
+    &__title {
+      font-size: 0.95rem;
+    }
+
+    &__price {
+      font-size: 0.8rem;
+    }
+    
+    &__category {
+      font-size: 0.75rem;
+      gap: 0.5rem;
+    }
+    
+    &__hours {
+      font-size: 0.75rem;
+      gap: 0.5rem;
+      
+      .hours-status {
+        font-size: 0.7rem;
+      }
+      
+      .hours-time {
+        font-size: 0.65rem;
+      }
+    }
+    
+    &__contact-buttons {
+      gap: 0.5rem;
+    }
+
+    .contact-btn {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.8rem;
+
+      &__icon {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .owner-card {
+    padding: 1rem;
+
+    &__title {
+      font-size: 0.9rem;
+    }
+
+    &__description {
+      font-size: 0.75rem;
+    }
+    
+    &__badge {
+      font-size: 11px;
+      padding: 5px 14px;
+    }
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .video-card-container {
+    width: 100% !important;
+    max-width: 370px;
+  }
+  
+  .section-divider {
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .event-overview {
+    padding: 0 0.25rem;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    
+    // Ensure all content fits within viewport
+    * {
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+  }
+  
+  .mobile-reservation-card {
+    margin: 1rem 0;
+    
+    .reservation-card {
+      padding: 0.875rem;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+  }
+  
+  .event-header {
+    &__title {
+      font-size: 1.1rem;
+      word-wrap: break-word;
+    }
+    
+    &__rating {
+      font-size: 0.65rem;
+      padding: 0.3rem 0.4rem;
+    }
+    
+    &__address {
+      font-size: 0.75rem;
+      word-wrap: break-word;
+    }
+    
+    &__actions {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+  }
+  
+  .hero-image {
+    &__img {
+      height: 180px;
+      max-width: 100%;
+      width: 100%;
+    }
+    
+    &__placeholder {
+      height: 180px;
+      max-width: 100%;
+      width: 100%;
+      font-size: 0.8rem;
+    }
+    
+    &__nav-btn {
+      width: 28px;
+      height: 28px;
+      font-size: 0.9rem;
+    }
+    
+    &__indicators {
+      bottom: 0.4rem;
+      gap: 0.25rem;
+    }
+    
+    &__indicator {
+      width: 7px;
+      height: 7px;
+      min-width: 18px;
+      min-height: 18px;
+      
+      &::before {
+        width: 5px;
+        height: 5px;
+      }
+      
+      &.active::before {
+        width: 7px;
+        height: 7px;
+      }
+    }
+  }
+  
+  .tags {
+    gap: 0.3rem;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    .tag {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.65rem;
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+  }
+  
+  .navigation-tabs-wrapper {
+    margin: 10px 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .navigation-tabs {
+    gap: 0.4rem;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    max-width: 100%;
+    
+    .nav-tab {
+      flex-shrink: 0;
+      
+      &__text {
+        font-size: 13px;
+        white-space: nowrap;
+        padding: 0.4rem 0.6rem;
+      }
+    }
+  }
+  
+  .section-title {
+    font-size: 1rem;
+    word-wrap: break-word;
+  }
+  
+  .menu-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .menu-card {
+    height: 100px;
+    max-width: 100%;
+    width: 100%;
+    
+    &__count-overlay {
+      .menu-card__plus-count {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  
+  .promotion-card {
+    padding: 0.625rem;
+    gap: 0.5rem;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    &__image {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+    
+    &__content {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    &__title {
+      font-size: 0.9rem;
+      word-wrap: break-word;
+    }
+    
+    &__details {
+      font-size: 0.7rem;
+      word-wrap: break-word;
+    }
+  }
+  
+  .reservation-card {
+    padding: 0.875rem;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    &__title {
+      font-size: 0.9rem;
+      word-wrap: break-word;
+    }
+    
+    &__price {
+      font-size: 0.75rem;
+      word-wrap: break-word;
+    }
+  }
+  
+  .owner-card {
+    padding: 0.875rem;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+    &__title {
+      font-size: 0.85rem;
+      word-wrap: break-word;
+    }
+    
+    &__description {
+      font-size: 0.7rem;
+      word-wrap: break-word;
+    }
+  }
+  
+  .btn {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .video-card-container {
+    max-width: 320px;
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+// Touch-friendly improvements for mobile devices
+@media (hover: none) and (pointer: coarse) {
+  .event-header__action,
+  .hero-image__nav-btn,
+  .tag,
+  .nav-tab__text,
+  .contact-btn,
+  .btn {
+    min-height: 44px; // iOS recommended minimum touch target
+    min-width: 44px;
+  }
+  
+  .hero-image__nav-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .tag {
+    min-height: 36px;
+    min-width: 44px;
+  }
+  
+  .nav-tab__text {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-btn,
+  .btn {
+    min-height: 48px;
+  }
+  
+
+}
+
+// Landscape orientation adjustments for mobile
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-image__img {
+    height: 200px;
+  }
+  
+  .event-header {
+    flex-direction: row;
+    gap: 1rem;
+    
+    &__title-row {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  
+  .event-content {
+    gap: 1rem;
+  }
+  
+  .reservation-card {
+    padding: 1rem;
+  }
+  
+  .owner-card {
+    padding: 1rem;
+  }
+}
+
+// High DPI display optimizations
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-image__img,
+  .menu-card__dummy-image,
+  .promotion-card__img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+// Print styles
+@media print {
+  .event-header__actions,
+  .hero-image__navigation,
+  .hero-image__indicators,
+  .reservation-card__actions,
+  .contact-btn,
+  .btn {
+    display: none !important;
+  }
+  
+  .event-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .event-sidebar {
+    position: static;
+    order: 0;
+  }
+  
+  .hero-image__img {
+    height: 300px;
+  }
+}
+
+ 
+
+// Keyframe animations for menu card effects
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+} 

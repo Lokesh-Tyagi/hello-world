@@ -1,0 +1,7 @@
+version: 1
+rules:
+  - id: always-create-todolist
+    alwaysApply: true
+    type: reminder
+    language: typescript
+    description: Always create a to-do list before starting the edit

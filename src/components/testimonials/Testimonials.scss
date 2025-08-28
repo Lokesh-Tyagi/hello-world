@@ -1,0 +1,209 @@
+@import '../../../public/style/variable.scss';
+.testimonials {
+  padding: 10px 0;
+  background-color:$background-primary-color;
+  font-family: $font-family-primary;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__header {
+    text-align: left;
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: $font-weight-semi-bold;
+    color: $primary-color;
+    margin: 0 0 12px 0;
+    line-height: 2;
+  }
+
+  &__subtitle {
+    font-size:16px;
+    color: $secondary-color;
+    font-weight: $font-weight-regular;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+  }
+
+  &__card {
+    background-color: #f8f8f8;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &__header-section {
+    margin-bottom: 16px;
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__profile-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+  }
+
+  &__profile-info {
+    flex: 1;
+  }
+
+  &__name-location {
+    font-size: 16px;
+    font-weight: $font-weight-medium;
+    color: $primary-color;
+    margin: 0 0 2px 0;
+    line-height: 1.3;
+  }
+
+  &__timestamp {
+    font-size: 14px;
+    color: $secondary-color;
+    font-weight: $font-weight-regular;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  &__content {
+    margin-top: 16px;
+  }
+
+  &__review-title {
+    font-size: 18px;
+    font-weight: $font-weight-semi-bold;
+    color: $primary-color;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+  }
+
+  &__review-text {
+    font-size: 16px;
+    color: $secondary-color;
+    font-weight: $font-weight-regular;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+// Tablet Responsive (768px - 1024px)
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .testimonials {
+    padding: 50px 0 !important;
+
+    &__container {
+      padding: 0 30px !important;
+    }
+
+    &__title {
+      font-size: 2rem !important;
+    }
+
+    &__subtitle {
+      font-size: 1.1rem !important;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 25px !important;
+    }
+
+    &__card {
+      padding: 25px !important;
+    }
+
+    &__review-title {
+      font-size: 1.2rem !important;
+    }
+
+    &__review-text {
+      font-size: 0.9rem !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    // padding: 40px 0;
+    padding: 0px;
+    &__title {
+      font-size: 1.75rem;
+    }
+
+    &__subtitle {
+      font-size: 0.9rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    &__card {
+      padding: 20px;
+    }
+
+    &__review-title {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials {
+    &__container {
+      padding: 0 16px;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+    }
+
+    &__card {
+      padding: 16px;
+    }
+
+    &__profile-image {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__name-location {
+      font-size: 0.8rem;
+    }
+
+    &__timestamp {
+      font-size: 0.7rem;
+    }
+
+    &__review-text {
+      font-size: 0.8rem;
+    }
+  }
+} 

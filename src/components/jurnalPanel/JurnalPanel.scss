@@ -1,0 +1,201 @@
+@import '../../../public/style/variable.scss';
+
+.jurnal-panel {
+  padding: 60px 0;
+  background-color: $background-primary-color;
+  font-family: $font-family-primary;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__header {
+    text-align: left;
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: $font-weight-semi-bold;
+    color: $primary-color;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    color: $secondary-color;
+    margin: 0;
+    font-weight: $font-weight-regular;
+    line-height: 1.4;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  &__card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+  }
+
+  &__card:hover &__image {
+    transform: scale(1.05);
+  }
+
+  &__content {
+    padding: 20px;
+  }
+
+  &__article-title {
+    font-size: 18px;
+    font-weight: $font-weight-semi-bold;
+    color: $primary-color;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+  }
+
+  &__article-description {
+    font-size: 14px;
+    color: $tertiary-color;
+    font-weight: $font-weight-regular;
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+  }
+
+  &__learn-more {
+    color: $primary-color;
+    text-decoration: underline;
+    font-weight: $font-weight-medium;
+    font-size: 14px;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+// Tablet Responsive (768px - 1024px)
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .jurnal-panel {
+    padding: 50px 0 !important;
+
+    &__container {
+      padding: 0 30px !important;
+    }
+
+    &__title {
+      font-size: 32px !important;
+    }
+
+    &__subtitle {
+      font-size: 18px !important;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 25px !important;
+    }
+
+    &__card {
+      padding: 25px !important;
+    }
+
+    &__article-title {
+      font-size: 20px !important;
+    }
+
+    &__article-description {
+      font-size: 16px !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .jurnal-panel {
+    padding: 60px 0;
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    &__content {
+      padding: 16px;
+    }
+
+    &__article-title {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .jurnal-panel {
+    &__container {
+      padding: 0 16px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    &__image-container {
+      height: 180px;
+    }
+
+    &__content {
+      padding: 14px;
+    }
+
+    &__article-title {
+      font-size: 16px;
+    }
+
+    &__article-description {
+      font-size: 14px;
+    }
+  }
+} 

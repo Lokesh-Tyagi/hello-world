@@ -1,0 +1,7 @@
+version: 1
+rules:
+  - id: always-check-typescript-error
+    alwaysApply: true
+    type: reminder
+    language: typescript
+    description: Always check and fix the typescript error
